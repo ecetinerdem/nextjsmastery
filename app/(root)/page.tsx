@@ -1,5 +1,7 @@
 import StartupCard from "@/components/StartupCard";
 import SearchForm from "../../components/SearchForm";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({
   searchParams,
@@ -7,19 +9,22 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
-  const posts = [
-    {
-      _id: 1,
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: "Cetin Erdem" },
-      description: "This is a description",
-      image:
-        "https://m.media-amazon.com/images/M/MV5BMTM0YzQyNDgtMmU3OS00ODNlLWFhZjQtNzg2OGJmMzkzNjEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-      category: "Robots",
-      title: "Robotar",
-    },
-  ];
+
+  const posts = await client.fetch(STARTUPS_QUERY);
+
+  //  const posts = [
+  //    {
+  //      _id: 1,
+  //      _createdAt: new Date(),
+  //      views: 55,
+  //      author: { _id: 1, name: "Cetin Erdem" },
+  //      description: "This is a description",
+  //      image:
+  //        "https://m.media-amazon.com/images/M/MV5BMTM0YzQyNDgtMmU3OS00ODNlLWFhZjQtNzg2OGJmMzkzNjEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+  //      category: "Robots",
+  //      title: "Robotar",
+  //    },
+  //  ];
   return (
     <>
       <section className="pink_container">
