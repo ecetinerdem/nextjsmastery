@@ -12,12 +12,12 @@ export default async function Home({
       _id: 1,
       _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
+      author: { _id: 1, name: "Cetin Erdem" },
       description: "This is a description",
       image:
-        "https://images.deccanherald.com/deccanherald%2F2024-10-11%2F6wrarmlh%2F2024_10_11T034632Z_1693236986_RC23IAA2Y9Y3_RTRMADP_5_TESLA_ROBOTAXI.JPG?rect=0%2C0%2C1360%2C1813",
+        "https://m.media-amazon.com/images/M/MV5BMTM0YzQyNDgtMmU3OS00ODNlLWFhZjQtNzg2OGJmMzkzNjEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
       category: "Robots",
-      title: "Robotaxi",
+      title: "Robotar",
     },
   ];
   return (
