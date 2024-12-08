@@ -4,9 +4,14 @@ import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
+import { Send } from "lucide-react";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const [pitch, setPitch] = useState<string>("");
+
+  const isPending = false;
 
   return (
     <form action={() => {}} className="startup-form">
@@ -79,9 +84,11 @@ const StartupForm = () => {
         />
         {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
       </div>
-      <Button type="submit" className="startup-form_submit">
+      <Button type="submit" className="startup-form_btn" disabled={isPending}>
         Submit
       </Button>
+      {isPending ? "Submitting..." : "Submit your startup"}
+      <Send className="size-6 ml-2" />
     </form>
   );
 };
