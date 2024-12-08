@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { Button } from "./ui/button";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -72,12 +73,15 @@ const StartupForm = () => {
         <Textarea
           id="pitch"
           name="pitch"
-          className="startup-form_input"
+          className="startup-form_textarea"
           required
           placeholder="Startup Pitch"
         />
         {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
       </div>
+      <Button type="submit" className="startup-form_submit">
+        Submit
+      </Button>
     </form>
   );
 };
